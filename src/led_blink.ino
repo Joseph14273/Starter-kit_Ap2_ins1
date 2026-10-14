@@ -1,29 +1,77 @@
 /*
-  ESP32 LED Blink Test
-  Hecho para probar si la carga del código funciona correctamente.
+  ESP32 - Prueba de LEDs por secuencias
+  GPIO: 18, 19, 21, 22
 */
+
 #include <Arduino.h>
 
-// La mayoría de las placas ESP32 tienen el LED interno en el GPIO 2
-const int LED_PIN = 2; 
+// Pines de los LEDs
+const int LED1 = 19;
+const int LED2 = 18;
+const int LED3 = 21;
+const int LED4 = 22;
+
 
 void setup() {
-  // Inicializa el puerto serie para ver mensajes en el monitor
   Serial.begin(115200);
-  Serial.println("--- ESP32 Listo para la prueba de parpadeo ---");
-  
-  // Configura el pin del LED como salida
-  pinMode(LED_PIN, OUTPUT);
+
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
+  pinMode(LED4, OUTPUT);
+
+
 }
 
 void loop() {
-  // Enciende el LED
-  digitalWrite(LED_PIN, HIGH);
-  Serial.println("LED Encendido (HIGH)");
-  delay(500); // Espera medio segundo
 
-  // Apaga el LED
-  digitalWrite(LED_PIN, LOW);
-  Serial.println("LED Apagado (LOW)");
-  delay(500); // Espera medio segundo
+  digitalWrite(LED1, HIGH);
+  delay(2000);
+  digitalWrite(LED1, LOW);
+    delay(1000);
+  digitalWrite(LED2, HIGH);
+    delay(2000);
+  digitalWrite(LED2, LOW);
+  delay(2000);
+  digitalWrite(LED3, HIGH);
+    delay(2000);
+  digitalWrite(LED3, LOW);
+    delay(2000);
+  digitalWrite(LED4, HIGH);
+    delay(2000);
+  digitalWrite(LED4, LOW);
+
+
+  delay(500);
+
+  digitalWrite(LED1, HIGH);
+  digitalWrite(LED3, HIGH);
+  delay(2000);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED3, LOW);
+
+  delay(500);
+
+  digitalWrite(LED2, HIGH);
+  digitalWrite(LED4, HIGH);
+  delay(2000);
+   digitalWrite(LED2, LOW);
+  digitalWrite(LED4, LOW);
+
+  delay(500);
+
+
+  digitalWrite(LED1, HIGH);
+  digitalWrite(LED2, HIGH);
+  digitalWrite(LED3, HIGH);
+  digitalWrite(LED4, HIGH);
+
+  delay(2000);
+
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, LOW);
+  digitalWrite(LED3, LOW);
+  digitalWrite(LED4, LOW);
+  
+  delay(1000);
 }
